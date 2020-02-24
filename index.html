@@ -7,35 +7,214 @@
     <link rel="stylesheet" href="style.css">
     <!--Libreria de Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
     <script src="index.js"></script>
 </head>
+
 <body>
-    <div class="todo">
-        <div class="contenedor">
-            <div class="cabecera">
-                <h1>Create your own music</h1>
-                
-                <img src="./imagenes/wzKnvoYbTegdL0GdI9urnfVjYX5s3pbQZ0ZsQUZc.jpeg" alt="img de fondo">
-                
-                <div class="sounds">
-                    <button class="btn btn-dark btn-sm" id="boton1">Sound 1
-                        <audio src="./Sonidos/saxo.mp3" class="saxo"></audio>
-                    </button>
-                    <button class="button2 btn btn-dark btn-sm">Sound 2</button>
-                    <button class="button3 btn btn-dark btn-sm">Sound 3</button>
-                    <button class="button4 btn btn-dark btn-sm">Sound 4</button>
-                    <button class="button5 btn btn-dark btn-sm">Sound 5</button>
-                    <button class="button6 btn btn-dark btn-sm">Sound 6</button>
-                    <button class="button7 btn btn-dark btn-sm">Sound 7</button>
-                    <button class="button8 btn btn-dark btn-sm">Sound 8</button>
-                    <button class="button9 btn btn-dark btn-sm">Sound 9</button>
-                    <button class="button10 btn btn-dark btn-sm">Sound 10</button>
-                </div>
+    <main>
+        <section>
+            <h1>Create your own music</h1>
+            <!--<img src="./imagenes/wzKnvoYbTegdL0GdI9urnfVjYX5s3pbQZ0ZsQUZc.jpeg" alt="img de fondo">-->
+            <div class="sounds">
+                <table>
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <th><button class="btn btn-dark btn-sm" id="boton1">Sound 1
+                                <audio src="./Sonidos/saxo.mp3" class="saxo"></audio></button></th>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                            <td><label for=""><input type="checkbox" id="" class="checkSound"></label></td>
+                        </tr>
+                        <tr>
+                            <th><button class="button2 btn btn-dark btn-sm">Sound 2</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th><button class="button3 btn btn-dark btn-sm">Sound 3</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th><button class="button4 btn btn-dark btn-sm">Sound 4</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th><button class="button5 btn btn-dark btn-sm">Sound 5</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th><button class="button6 btn btn-dark btn-sm">Sound 6</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th><button class="button7 btn btn-dark btn-sm">Sound 7</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th><button class="button8 btn btn-dark btn-sm">Sound 8</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th><button class="button9 btn btn-dark btn-sm">Sound 9</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th><button class="button10 btn btn-dark btn-sm">Sound 10</button></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>  
+                </table>
             </div>
-        </div>
-        
-    </div>
+        </section>
+    </main> 
     <!--Libreria de Bootstrap-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
