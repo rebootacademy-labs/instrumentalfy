@@ -1,13 +1,28 @@
-var boton1 = document.getElementById("boton1");
-var saxo = document.getElementsByClassName("saxo");
+//var boton1 = document.getElementById("boton1");
+//var saxo = document.getElementsByClassName("saxo");
 
-var botones = document.querySelectorAll("button");
+//var botones = document.querySelectorAll("button");
+var selectorSaxo = document.getElementsByClassName("checkSoundSaxo");
 var saxo = new Audio();
 saxo.src = "./Sonidos/saxo.mp3";
-botones[0].addEventListener("click", function(){
-    saxo.play();
-});
+for (var i = 0; i < selectorSaxo.length; i++) {
+    //selectorSaxo[i].checked = selectorSaxo[i]Object.checked;
+    selectorSaxo[i].addEventListener("click", function() {
+        if (selectorSaxo[i].checked == true) {
+        saxo.play();
+        }
+    })
+}
+
+/*var selectorClarinete = document.getElementsByClassName("checkSoundClarinete");
 var clarinete = new Audio();
+clarinete.src = "./Sonidos/clarinete.mp3";*/
+
+/*botones[0].addEventListener("click", function(){
+    saxo.play();
+});*/
+
+/*var clarinete = new Audio();
 clarinete.src = "./Sonidos/clarinete.mp3";
 botones[1].addEventListener("click", function(){
     clarinete.play();
@@ -51,4 +66,4 @@ var tamborin1 = new Audio();
 tamborin1.src = "./Sonidos/tamborim_loop_123_2.mp3";
 botones[9].addEventListener("click", function(){
     tamborin1.play();
-});
+});*/
