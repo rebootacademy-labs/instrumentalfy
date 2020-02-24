@@ -1,15 +1,11 @@
-//var boton1 = document.getElementById("boton1");
-//var saxo = document.getElementsByClassName("saxo");
 
-//var botones = document.querySelectorAll("button");
 var selectorSaxo = document.getElementsByClassName("checkSoundSaxo");
 var saxo = new Audio();
 saxo.src = "./Sonidos/saxo.mp3";
 for (var i = 0; i < selectorSaxo.length; i++) {
-    //selectorSaxo[i].checked = selectorSaxo[i]Object.checked;
     selectorSaxo[i].addEventListener("click", function() {
-        if (selectorSaxo[i].checked == true) {
-        saxo.play();
+        if (this.checked == true) {
+            saxo.play();
         }
     })
 }
