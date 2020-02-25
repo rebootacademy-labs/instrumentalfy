@@ -44,6 +44,7 @@ function createHtmlInstrument(instrument, idx) {
     var input = document.createElement('input');
     input.setAttribute('type', 'checkbox');
     divInst.appendChild(input);
+    input.classList.add(`checkbox-${i}`)
   }
   document.getElementById('soundBox').appendChild(divInst);
 }
@@ -54,6 +55,42 @@ var inputs = document.querySelectorAll('input');
 for (i = 0; i < inputs.length; i++) {
   inputs[i].addEventListener('click', function (e) {
     var id = this.parentElement.id.split('-')[1];
-    instruments[id].play();
+    if (this.checked) {
+      instruments[id].play();
+    }
   })
 }
+
+
+var boton = document.getElementById("btn-reproducir")
+
+function getSoundsChecked(checkboxes) {
+  var resObject = {};
+
+  for (var i = 0; i < TEMPO; i++) {
+    var firstInput = document.getElementsByClassName(`checkbox-${i}`);
+    for (j = 0; j < firstInput.length; j++) {
+      if(firstInput[j].checked){
+        if(!resObject[i]) {
+          resObject[i] = []
+        }
+        resObject[i].push(SOUNDS[j].url);
+      }
+    }
+  }
+  console.log(resObject);
+  
+  music(resObject);
+}
+
+function music(checkedMusic) {
+  var musics = [];
+  for (var i = 0; i < checkedMusic.length; i++) {
+    for (var j = 0; j < 2; j++) {
+      musics.push(checkedMusic[i][1]);
+    }
+  }
+  return musics;
+}
+
+boton.onclick = getSoundsChecked
