@@ -1,65 +1,36 @@
+const instruments = [["Saxo", "./Sonidos/saxo.mp3"],
+["Clarinete", "./Sonidos/clarinete.mp3"],
+["Trompeta", "./Sonidos/trompeta.mp3"],
+["Piano", "./Sonidos/piano.mp3"],
+["Triangulo", "./Sonidos/triangulo.mp3"],
+["Timbal", "./Sonidos/timbal.mp3"],
+["Violin", "./Sonidos/violin.mp3"],
+["Tamborin", "./Sonidos/tamborin.mp3"],
+["Xilofono", "./Sonidos/xilofono.mp3"],
+["Guitarra", "./Sonidos/guitarra.mp3"]];
 
-var selectorSaxo = document.getElementsByClassName("checkSoundSaxo");
-var saxo = new Audio();
-saxo.src = "./Sonidos/saxo.mp3";
-for (var i = 0; i < selectorSaxo.length; i++) {
-    selectorSaxo[i].addEventListener("click", function() {
-        if (this.checked == true) {
-            saxo.play();
-        }
-    })
+const tempo = 18;
+
+var urlSound = [];
+
+var objInst = [];
+
+function prepare() {
+    for (var i = 0; i < instruments.length; i++) {
+        objInst.push(new Instrument(instruments[i]));
+        createHtml();
+
+    }
 }
 
-/*var selectorClarinete = document.getElementsByClassName("checkSoundClarinete");
-var clarinete = new Audio();
-clarinete.src = "./Sonidos/clarinete.mp3";*/
+function Instrument(name, url) {
+    this.name = name;
+    this.url = url;
+    //this.checkbox = checkbox;
+}
 
-/*botones[0].addEventListener("click", function(){
-    saxo.play();
-});*/
-
-/*var clarinete = new Audio();
-clarinete.src = "./Sonidos/clarinete.mp3";
-botones[1].addEventListener("click", function(){
-    clarinete.play();
-});
-var fagot = new Audio();
-fagot.src = "./Sonidos/fagot-2-.mp3";
-botones[2].addEventListener("click", function(){
-    fagot.play();
-});
-var huevo_loop = new Audio();
-huevo_loop.src = "./Sonidos/huevo_loop_123_3.mp3";
-botones[3].addEventListener("click", function(){
-    huevo_loop.play();
-});
-var piano = new Audio();
-piano.src = "./Sonidos/piano.mp3";
-botones[4].addEventListener("click", function(){
-    piano.play();
-});
-var violin = new Audio();
-violin.src = "./Sonidos/violín.mp3";
-botones[5].addEventListener("click", function(){
-    violin.play();
-});
-var trompeta = new Audio();
-trompeta.src = "./Sonidos/trompeta1.mp3";
-botones[6].addEventListener("click", function(){
-    trompeta.play();
-});
-var timbal_loop = new Audio();
-timbal_loop.src = "./Sonidos/timbal_loop_123_3.mp3";
-botones[7].addEventListener("click", function(){
-    timbal_loop.play();
-});
-var triangulo = new Audio();
-triangulo.src = "./Sonidos/triángulo.mp3";
-botones[8].addEventListener("click", function(){
-    triangulo.play();
-});
-var tamborin1 = new Audio();
-tamborin1.src = "./Sonidos/tamborim_loop_123_2.mp3";
-botones[9].addEventListener("click", function(){
-    tamborin1.play();
-});*/
+function createHtml() {
+    var bloque = section.insertBefore('div', "boton");
+    var nameInstrument = bloque.appendChild("label");
+    var checkbox = bloque.appendChild("input").setAttribute("type", "checkbox");
+}
