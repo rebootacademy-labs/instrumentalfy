@@ -5,6 +5,7 @@ body {
   height: 100vh;
   background: url(./images/backgound.jpeg) center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1 {

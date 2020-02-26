@@ -64,7 +64,7 @@ for (i = 0; i < inputs.length; i++) {
 
 var boton = document.getElementById("btn-reproducir")
 
-function getSoundsChecked(checkboxes) {
+function getSoundsChecked() {
   var resObject = {};
 
   for (var i = 0; i < TEMPO; i++) {
@@ -78,19 +78,33 @@ function getSoundsChecked(checkboxes) {
       }
     }
   }
-  console.log(resObject);
-  
-  music(resObject);
+  playMusic(resObject);
 }
 
-function music(checkedMusic) {
+
+function playMusic(checkedMusic) {
   var musics = [];
-  for (var i = 0; i < checkedMusic.length; i++) {
-    for (var j = 0; j < 2; j++) {
-      musics.push(checkedMusic[i][1]);
-    }
+  console.log(checkedMusic);
+  
+  for (i in checkedMusic) {7
+    for (var j = 0; j < checkedMusic[i].length; j++) {
+      const element = checkedMusic[i][j];
+      let audio = new Audio(`./sounds/${checkedMusic[i][j]}`);
+      audio.play()
+      console.log(element);
+    }    
   }
-  return musics;
+  //return musics;
 }
 
 boton.onclick = getSoundsChecked
+
+var btnAcelerar = document.getElementById("btn-agilizar");
+btnAcelerar.addEventListener("click", function() { 
+  music.playbackRate = 1.5;
+ });
+
+ var btnRalentizar = document.getElementById("btn-ralentizar");
+ btnAcelerar.addEventListener("click", function() { 
+   music.playbackRate = 0.5;
+  });
