@@ -4,7 +4,7 @@ const SOUNDS = [
   { name: "Saxo", url: "saxo.mp3" },
   { name: "Clarinete", url: "clarinete.mp3" },
   { name: "Trompeta", url: "trompeta.mp3" },
-  { name: "Piano", url: "piano2.mp3" },
+  { name: "Piano", url: "piano.mp3" },
   { name: "Triangulo", url: "triangulo.mp3" },
   { name: "Violin", url: "violin.mp3" },
   { name: "Xilofono", url: "xilofono.mp3" },
@@ -106,10 +106,12 @@ boton.onclick = getSoundsChecked
 
 var btnAcelerar = document.getElementById("btn-agilizar");
 btnAcelerar.addEventListener("click", function() { 
-  music.playbackRate = 1.5;
+  //("./sounds/saxo.mp3").playbackRate = 4;
 });
 
 var btnRalentizar = document.getElementById("btn-ralentizar");
-btnAcelerar.addEventListener("click", function() { 
-  music.playbackRate = 0.5;
-});
+
+  function ralentizar(u){
+  resObject.playbackRate = 0.5;
+  }
+  btnRalentizar.onclick = ralentizar;
