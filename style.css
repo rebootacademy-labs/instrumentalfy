@@ -14,8 +14,30 @@ h1 {
   text-shadow: 1px 1px black;
 }
 
+.tituloJuego {
+  font-style: oblique;
+  text-align: left;
+  color: white;
+  text-shadow: 1px 1px black;
+  margin-left: 2.5%;
+  -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-transform-origin: 50% 50%;
+      -moz-transform-origin: 50% 50%;
+      -ms-transform-origin: 50% 50%;
+      -o-transform-origin: 50% 50%;
+      transform-origin: 50% 50%;
+      font-size: 40px;
+      width: 250px;
+      position: relative;
+      top: 75px;
+}
+
 #soundBox {
-  margin: 200px auto;
+  margin: 30px auto;
   width: 800px;
 }
 
@@ -29,7 +51,7 @@ h1 {
 }
 
 .instrument > div {
-  width: 200px;
+  width: 150px;
   display: inline-block;
   text-align: center;
   color: white;
@@ -42,4 +64,8 @@ h1 {
 input{
     width: 2rem;
     height: 2rem;
+}
+
+#btn-reproducir {
+  margin-left: 33%;
 }

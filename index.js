@@ -1,16 +1,16 @@
-const TEMPO = 18;
+const TEMPO = 20;
 
 const SOUNDS = [
   { name: "Saxo", url: "saxo.mp3" },
   { name: "Clarinete", url: "clarinete.mp3" },
   { name: "Trompeta", url: "trompeta.mp3" },
-  { name: "Piano", url: "piano.mp3" },
+  { name: "Piano", url: "piano2.mp3" },
   { name: "Triangulo", url: "triangulo.mp3" },
-  { name: "Timbal", url: "timbal.mp3" },
   { name: "Violin", url: "violin.mp3" },
-  { name: "Tamborin", url: "tamborim.mp3" },
   { name: "Xilofono", url: "xilofono.mp3" },
-  // { name: "Guitarra", url: "guitarra.mp3" }
+  { name: "Bateria", url: "bateria.mp3", duration: 4},
+  { name: "Guitarra", url: "guitarra.mp3", duration: 4},
+  { name: "Agogo", url: "agogo.mp3", duration: 4}
 ];
 
 function Instrument(name, url) {
@@ -39,14 +39,25 @@ function createHtmlInstrument(instrument, idx) {
   var divName = document.createElement('div');
   divName.innerText = instrument.name;
   divInst.appendChild(divName);
-
-  for (let i = 0; i < TEMPO; i++) {
-    var input = document.createElement('input');
-    input.setAttribute('type', 'checkbox');
-    divInst.appendChild(input);
-    input.classList.add(`checkbox-${i}`)
+  
+  if (instrument.name == "Guitarra" || instrument.name == "Bateria" || instrument.name == "Agogo") {
+    for (let j = 0; j < 4; j++) {
+      var input = document.createElement('input');
+      input.setAttribute('type', 'checkbox');
+      divInst.appendChild(input);
+      input.classList.add(`checkbox-${j}`);
+      document.getElementById('soundBox').appendChild(divInst);
+    }
+  } else {
+      for (let i = 0; i < TEMPO; i++) {
+        var input = document.createElement('input');
+        input.setAttribute('type', 'checkbox');
+        divInst.appendChild(input);
+        input.classList.add(`checkbox-${i}`);
+        document.getElementById('soundBox').appendChild(divInst);
+    }
   }
-  document.getElementById('soundBox').appendChild(divInst);
+  
 }
 
 init()
@@ -65,15 +76,13 @@ for (i = 0; i < inputs.length; i++) {
 var boton = document.getElementById("btn-reproducir")
 
 function getSoundsChecked() {
-  var resObject = {};
+  var resObject = [];
 
   for (var i = 0; i < TEMPO; i++) {
     var firstInput = document.getElementsByClassName(`checkbox-${i}`);
+    resObject[i] = [];
     for (j = 0; j < firstInput.length; j++) {
       if(firstInput[j].checked){
-        if(!resObject[i]) {
-          resObject[i] = []
-        }
         resObject[i].push(SOUNDS[j].url);
       }
     }
@@ -83,18 +92,14 @@ function getSoundsChecked() {
 
 
 function playMusic(checkedMusic) {
-  var musics = [];
-  console.log(checkedMusic);
-  
-  for (i in checkedMusic) {7
-    for (var j = 0; j < checkedMusic[i].length; j++) {
-      const element = checkedMusic[i][j];
-      let audio = new Audio(`./sounds/${checkedMusic[i][j]}`);
-      audio.play()
-      console.log(element);
-    }    
+  for (var i = 0; i < checkedMusic.length; i++) {
+    setTimeout( function(urlArr) {
+      for (var j = 0; j < urlArr.length; j++) {
+        let audio = new Audio(`./sounds/${urlArr[j]}`);
+        audio.play();
+      }
+    }, 1000 * i, checkedMusic[i]);
   }
-  //return musics;
 }
 
 boton.onclick = getSoundsChecked
@@ -102,9 +107,9 @@ boton.onclick = getSoundsChecked
 var btnAcelerar = document.getElementById("btn-agilizar");
 btnAcelerar.addEventListener("click", function() { 
   music.playbackRate = 1.5;
- });
+});
 
- var btnRalentizar = document.getElementById("btn-ralentizar");
- btnAcelerar.addEventListener("click", function() { 
-   music.playbackRate = 0.5;
-  });
+var btnRalentizar = document.getElementById("btn-ralentizar");
+btnAcelerar.addEventListener("click", function() { 
+  music.playbackRate = 0.5;
+});
