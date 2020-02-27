@@ -24,13 +24,6 @@ function Instrument(name, url) {
 
 var instruments = [];
 
-function init() {
-  SOUNDS.forEach((sound, idx) => {
-    instruments.push(new Instrument(sound.name, sound.url));
-    createHtmlInstrument(sound, idx);
-  })
-}
-
 function createHtmlInstrument(instrument, idx) {
   var divInst = document.createElement('div');
   divInst.classList.add('instrument');
@@ -40,7 +33,16 @@ function createHtmlInstrument(instrument, idx) {
   divName.innerText = instrument.name;
   divInst.appendChild(divName);
   
-  if (instrument.name == "Guitarra" || instrument.name == "Bateria" || instrument.name == "Agogo") {
+  if (!instrument.duration) {
+    for (let i = 0; i < TEMPO; i++) {
+      var input = document.createElement('input');
+      input.setAttribute('type', 'checkbox');
+      divInst.appendChild(input);
+      input.classList.add(`checkbox-${i}`);
+      input.classList.add(`shortTempo`);
+      document.getElementById('soundBox').appendChild(divInst);
+    }
+  } else {
     for (let j = 0; j < 5; j++) {
       var input = document.createElement('input');
       input.setAttribute('type', 'checkbox');
@@ -49,19 +51,13 @@ function createHtmlInstrument(instrument, idx) {
       input.classList.add(`checkbox-${j}`);
       document.getElementById('soundBox').appendChild(divInst);
     }
-  } else {
-      for (let i = 0; i < TEMPO; i++) {
-        var input = document.createElement('input');
-        input.setAttribute('type', 'checkbox');
-        divInst.appendChild(input);
-        input.classList.add(`checkbox-${i}`);
-        document.getElementById('soundBox').appendChild(divInst);
-    }
   }
-  
 }
 
-init()
+SOUNDS.forEach((sound, idx) => {
+  instruments.push(new Instrument(sound.name, sound.url));
+  createHtmlInstrument(sound, idx);
+})
 
 var inputs = document.querySelectorAll('input');
 for (i = 0; i < inputs.length; i++) {
@@ -74,55 +70,47 @@ for (i = 0; i < inputs.length; i++) {
 }
 
 
-var boton = document.getElementById("btn-reproducir")
+document.getElementById("btn-reproducir").onclick = function () {
 
-function getSoundsChecked() {
-  var resObject = [];
+  var metronomo = new Audio ("./sounds/metronomo.mp3");
+    setInterval(() => {
+      metronomo.play();
+    }, 1000);
 
-  for (var i = 0; i < TEMPO; i++) {
-    var firstInput = document.getElementsByClassName(`checkbox-${i}`);
-    console.log(firstInput);
-    resObject[i] = [[],[]];
-    for (j = 0; j < firstInput.length; j++) {
-      if(firstInput[j].checked && j < firstInput.length - 3) {
-        resObject[i][0].push(SOUNDS[j].url);
-      } else if (firstInput[j].checked) {
-        resObject[i][1].push(SOUNDS[j].url);
-      }
+  var currentBeat = 0;
+  setInterval(() => {
+    var shortBeats = document.querySelectorAll(`.checkbox-${currentBeat++}.shortTempo:checked`);
+
+    shortBeats.forEach(function(shortBeat){
+       var id = shortBeat.parentElement.id.split('-')[1];
+       instruments[id].play();
+    })
+
+    if (currentBeat == 19) {
+      currentBeat = 0
     }
-  }
-  playMusic(resObject);
+  }, 1000);
+
+  var currentBar = 0; // 4 beats = 1 bar
+  setInterval(() => {
+    var longBeats = document.querySelectorAll(`.checkbox-${currentBar++}.longTempo:checked`);
+
+    longBeats.forEach(function (longBeat) {
+      var id = longBeat.parentElement.id.split('-')[1];
+      instruments[id].play();
+    })
+
+    if (currentBar == 4) {
+      currentBar = 0
+    }
+  }, 4000);
 }
 
-
-function playMusic(checkedMusic) {
-  for (var i = 0; i < checkedMusic.length; i++) {
-    setTimeout( function(urlArr) {
-      for (var j = 0; j < urlArr.length; j++) {
-      let audio = new Audio(`./sounds/${urlArr[j]}`);
-      audio.play();
-      }
-    }, 1000 * i, checkedMusic[i][0]);
-
-    setTimeout( function(urlArr) {
-      for (var j = 0; j < urlArr.length; j++) {
-      let audio = new Audio(`./sounds/${urlArr[j]}`);
-      audio.play();
-      }
-    }, 1000 * i * 4, checkedMusic[i][1]);
-  }
-}
-
-boton.onclick = getSoundsChecked
-
-var botonReseteo = document.getElementById('btn-resetear');
-
-botonReseteo.addEventListener('click', function() {
+document.getElementById('btn-resetear').addEventListener('click', function() {
   location.reload(true);
 })
 
-
-function santaMusica() {
+document.getElementById('btn-musica').onclick = function() {
   var violin1 = document.getElementsByClassName('checkbox-0')[5];
   violin1.checked = true;
   var violin2 = document.getElementsByClassName('checkbox-2')[5];
@@ -180,15 +168,6 @@ function santaMusica() {
   var triangulo4 = document.getElementsByClassName('checkbox-17')[4];
   triangulo4.checked = true;
 }
-
-var btnMusica = document.getElementById('btn-musica');
-
-btnMusica.onclick = santaMusica
-
-
-
-
-
 
 
 /*var btnAcelerar = document.getElementById("btn-agilizar");

@@ -21,24 +21,26 @@ h1 {
   text-shadow: 1px 1px black;
   margin-left: 2.5%;
   -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-      -o-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      -webkit-transform-origin: 50% 50%;
-      -moz-transform-origin: 50% 50%;
-      -ms-transform-origin: 50% 50%;
-      -o-transform-origin: 50% 50%;
-      transform-origin: 50% 50%;
-      font-size: 40px;
-      width: 250px;
-      position: relative;
-      top: 75px;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  font-size: 40px;
+  width: 250px;
+  position: relative;
+  top: 75px;
 }
 
 #soundBox {
   margin: 30px auto;
-  width: 800px;
+  width: 900px;
+  background-color: rgba(3, 3, 3, 0.5);
+  padding: 20px;
 }
 
 .instrument {
@@ -61,10 +63,11 @@ h1 {
   position: absolute;
 }
 
-input{
+input {
   width: 2rem;
-   height: 2rem;
+  height: 2rem;
 }
+
 
 .longTempo {
   transform:scale(3.5, 1);
