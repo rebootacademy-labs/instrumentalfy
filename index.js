@@ -81,6 +81,7 @@ function getSoundsChecked() {
 
   for (var i = 0; i < TEMPO; i++) {
     var firstInput = document.getElementsByClassName(`checkbox-${i}`);
+    console.log(firstInput);
     resObject[i] = [[],[]];
     for (j = 0; j < firstInput.length; j++) {
       if(firstInput[j].checked && j < firstInput.length - 3) {
@@ -95,7 +96,6 @@ function getSoundsChecked() {
 
 
 function playMusic(checkedMusic) {
-  console.log(checkedMusic);
   for (var i = 0; i < checkedMusic.length; i++) {
     setTimeout( function(urlArr) {
       for (var j = 0; j < urlArr.length; j++) {
@@ -121,6 +121,76 @@ botonReseteo.addEventListener('click', function() {
   location.reload(true);
 })
 
+
+function santaMusica() {
+  var violin1 = document.getElementsByClassName('checkbox-0')[5];
+  violin1.checked = true;
+  var violin2 = document.getElementsByClassName('checkbox-2')[5];
+  violin2.checked = true;
+  var violin3 = document.getElementsByClassName('checkbox-4')[5];
+  violin3.checked = true;
+  var violin4 = document.getElementsByClassName('checkbox-6')[5];
+  violin4.checked = true;
+  var violin6 = document.getElementsByClassName('checkbox-8')[5];
+  violin6.checked = true;
+  var violin7 = document.getElementsByClassName('checkbox-10')[5];
+  violin7.checked = true;
+  var violin8 = document.getElementsByClassName('checkbox-12')[5];
+  violin8.checked = true;
+  var violin9 = document.getElementsByClassName('checkbox-14')[5];
+  violin9.checked = true;
+  var violin10 = document.getElementsByClassName('checkbox-16')[5];
+  violin10.checked = true;
+  var violin11 = document.getElementsByClassName('checkbox-18')[5];
+  violin11.checked = true;
+
+  var agogo1 = document.getElementsByClassName('checkbox-0')[9];
+  agogo1.checked = true;
+  var agogo2 = document.getElementsByClassName('checkbox-2')[9];
+  agogo2.checked = true;
+
+  var xilofono1 = document.getElementsByClassName('checkbox-1')[6];
+  xilofono1.checked = true;
+  var xilofono2 = document.getElementsByClassName('checkbox-5')[6];
+  xilofono2.checked = true;
+  var xilofono3 = document.getElementsByClassName('checkbox-9')[6];
+  xilofono3.checked = true;
+  var xilofono4 = document.getElementsByClassName('checkbox-13')[6];
+  xilofono4.checked = true;
+  var xilofono5 = document.getElementsByClassName('checkbox-17')[6];
+  xilofono5.checked = true;
+  var xilofono6 = document.getElementsByClassName('checkbox-19')[6];
+  xilofono6.checked = true;
+
+  var piano1 = document.getElementsByClassName('checkbox-3')[3];
+  piano1.checked = true;
+  var piano2 = document.getElementsByClassName('checkbox-7')[3];
+  piano2.checked = true;
+  var piano3 = document.getElementsByClassName('checkbox-11')[3];
+  piano3.checked = true;
+  var piano4 = document.getElementsByClassName('checkbox-15')[3];
+  piano4.checked = true;
+
+  var triangulo1 = document.getElementsByClassName('checkbox-4')[4];
+  triangulo1.checked = true;
+  var triangulo2 = document.getElementsByClassName('checkbox-9')[4];
+  triangulo2.checked = true;
+  var triangulo3 = document.getElementsByClassName('checkbox-13')[4];
+  triangulo3.checked = true;
+  var triangulo4 = document.getElementsByClassName('checkbox-17')[4];
+  triangulo4.checked = true;
+}
+
+var btnMusica = document.getElementById('btn-musica');
+
+btnMusica.onclick = santaMusica
+
+
+
+
+
+
+
 /*var btnAcelerar = document.getElementById("btn-agilizar");
 btnAcelerar.addEventListener("click", function() { 
   //("./sounds/saxo.mp3").playbackRate = 4;
@@ -128,9 +198,7 @@ btnAcelerar.addEventListener("click", function() {
 
 var btnRalentizar = document.getElementById("btn-ralentizar");
 
-  function ralentizar(u){
+function ralentizar(u){
   resObject.playbackRate = 0.5;
-  }
-  btnRalentizar.onclick = ralentizar;*/
-
-  //var sampleMusic = 
+}
+btnRalentizar.onclick = ralentizar;*/
