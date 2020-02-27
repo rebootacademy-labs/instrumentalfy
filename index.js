@@ -93,13 +93,22 @@ function getSoundsChecked() {
 
 function playMusic(checkedMusic) {
   for (var i = 0; i < checkedMusic.length; i++) {
-    setTimeout( function(urlArr) {
-      for (var j = 0; j < urlArr.length; j++) {
+    if (checkedMusic[i] == "guitarra.mp3" || checkedMusic[i] == "bateria.mp3" || checkedMusic[i] == "agogo.mp3") {
+      setTimeout( function(urlArr) {
+        for (var j = 0; j < urlArr.length; j++) {
+          let audio = new Audio(`./sounds/${urlArr[j]}`);
+          audio.play();
+        }
+      }, 4000 * i, checkedMusic[i]);
+    } else {
+      setTimeout( function(urlArr) {
+        for (var j = 0; j < urlArr.length; j++) {
         let audio = new Audio(`./sounds/${urlArr[j]}`);
         audio.play();
+        }
+      }, 1000 * i, checkedMusic[i]);
       }
-    }, 1000 * i, checkedMusic[i]);
-  }
+    }
 }
 
 boton.onclick = getSoundsChecked
@@ -115,3 +124,5 @@ var btnRalentizar = document.getElementById("btn-ralentizar");
   resObject.playbackRate = 0.5;
   }
   btnRalentizar.onclick = ralentizar;
+
+  //var sampleMusic = 
