@@ -41,9 +41,10 @@ function createHtmlInstrument(instrument, idx) {
   divInst.appendChild(divName);
   
   if (instrument.name == "Guitarra" || instrument.name == "Bateria" || instrument.name == "Agogo") {
-    for (let j = 0; j < 4; j++) {
+    for (let j = 0; j < 5; j++) {
       var input = document.createElement('input');
       input.setAttribute('type', 'checkbox');
+      input.setAttribute('class', 'longTempo');
       divInst.appendChild(input);
       input.classList.add(`checkbox-${j}`);
       document.getElementById('soundBox').appendChild(divInst);
@@ -80,10 +81,12 @@ function getSoundsChecked() {
 
   for (var i = 0; i < TEMPO; i++) {
     var firstInput = document.getElementsByClassName(`checkbox-${i}`);
-    resObject[i] = [];
+    resObject[i] = [[],[]];
     for (j = 0; j < firstInput.length; j++) {
-      if(firstInput[j].checked){
-        resObject[i].push(SOUNDS[j].url);
+      if(firstInput[j].checked && j < firstInput.length - 3) {
+        resObject[i][0].push(SOUNDS[j].url);
+      } else if (firstInput[j].checked) {
+        resObject[i][1].push(SOUNDS[j].url);
       }
     }
   }
@@ -92,28 +95,33 @@ function getSoundsChecked() {
 
 
 function playMusic(checkedMusic) {
+  console.log(checkedMusic);
   for (var i = 0; i < checkedMusic.length; i++) {
-    if (checkedMusic[i] == "guitarra.mp3" || checkedMusic[i] == "bateria.mp3" || checkedMusic[i] == "agogo.mp3") {
-      setTimeout( function(urlArr) {
-        for (var j = 0; j < urlArr.length; j++) {
-          let audio = new Audio(`./sounds/${urlArr[j]}`);
-          audio.play();
-        }
-      }, 4000 * i, checkedMusic[i]);
-    } else {
-      setTimeout( function(urlArr) {
-        for (var j = 0; j < urlArr.length; j++) {
-        let audio = new Audio(`./sounds/${urlArr[j]}`);
-        audio.play();
-        }
-      }, 1000 * i, checkedMusic[i]);
+    setTimeout( function(urlArr) {
+      for (var j = 0; j < urlArr.length; j++) {
+      let audio = new Audio(`./sounds/${urlArr[j]}`);
+      audio.play();
       }
-    }
+    }, 1000 * i, checkedMusic[i][0]);
+
+    setTimeout( function(urlArr) {
+      for (var j = 0; j < urlArr.length; j++) {
+      let audio = new Audio(`./sounds/${urlArr[j]}`);
+      audio.play();
+      }
+    }, 1000 * i * 4, checkedMusic[i][1]);
+  }
 }
 
 boton.onclick = getSoundsChecked
 
-var btnAcelerar = document.getElementById("btn-agilizar");
+var botonReseteo = document.getElementById('btn-resetear');
+
+botonReseteo.addEventListener('click', function() {
+  location.reload(true);
+})
+
+/*var btnAcelerar = document.getElementById("btn-agilizar");
 btnAcelerar.addEventListener("click", function() { 
   //("./sounds/saxo.mp3").playbackRate = 4;
 });
@@ -123,6 +131,6 @@ var btnRalentizar = document.getElementById("btn-ralentizar");
   function ralentizar(u){
   resObject.playbackRate = 0.5;
   }
-  btnRalentizar.onclick = ralentizar;
+  btnRalentizar.onclick = ralentizar;*/
 
   //var sampleMusic = 
