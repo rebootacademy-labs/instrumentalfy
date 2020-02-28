@@ -12,4 +12,4 @@ La idea era crear botones para aumentar y reducir velocidad, pero no hubo tiempo
 
 Puede mejorarse estilo y lógica, trabajando en ello.
 
-![]('./images/CapturaJuego.png')
+![](./images/CapturaJuego.png)
