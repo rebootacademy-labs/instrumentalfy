@@ -72,6 +72,7 @@ function createHtmlInstrument(instrument, idx) {
       divInst.appendChild(input);
       input.classList.add(`checkbox-${i}`);
       input.classList.add(`shortTempo`);
+      if(i%4===0) {input.classList.add('spaced')}
       document.getElementById('soundBox').appendChild(divInst);
     }
   } else {
@@ -81,6 +82,7 @@ function createHtmlInstrument(instrument, idx) {
       input.setAttribute('class', 'longTempo');
       divInst.appendChild(input);
       input.classList.add(`checkbox-${j}`);
+      //if(j>0) {input.classList.add('gap')}
       document.getElementById('soundBox').appendChild(divInst);
     }
   }

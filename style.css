@@ -66,14 +66,22 @@ h1 {
 input {
   width: 2rem;
   height: 2rem;
+}
 
+.spaced {
+  margin-left: 10px;
 }
 
 .longTempo {
-  transform: scale(3.5, 1);
-  margin-left: 73.5px;
-  margin-right: 10px;
+  transform: scale(3.55, 1);
+  margin-left: 50px;
+  margin-right: 60px;
 }
+
+/*.gap {
+  transform: scale(4.2, 1);
+  margin-left: 85px;
+}*/
 
 #btn-start {
   margin-left: 40%;
