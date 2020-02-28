@@ -14,7 +14,7 @@ h1 {
   text-shadow: 1px 1px black;
 }
 
-.tituloJuego {
+.titleGame {
   font-style: oblique;
   text-align: left;
   color: white;
@@ -66,6 +66,7 @@ h1 {
 input {
   width: 2rem;
   height: 2rem;
+
 }
 
 .longTempo {
@@ -74,6 +75,6 @@ input {
   margin-right: 10px;
 }
 
-#btn-reproducir {
+#btn-start {
   margin-left: 40%;
 }

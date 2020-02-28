@@ -1,15 +1,15 @@
 const TEMPO = 20;
 
 const SOUNDS = [{
-    name: "Saxofón",
+    name: "Saxophone",
     url: "saxo.mp3"
   },
   {
-    name: "Clarinete",
+    name: "Clarinet",
     url: "clarinete.mp3"
   },
   {
-    name: "Trompeta",
+    name: "Trumpet",
     url: "trompeta.mp3"
   },
   {
@@ -17,24 +17,24 @@ const SOUNDS = [{
     url: "piano.mp3"
   },
   {
-    name: "Triángulo",
+    name: "Triangle",
     url: "triangulo.mp3"
   },
   {
-    name: "Violín",
+    name: "Violin",
     url: "violin.mp3"
   },
   {
-    name: "Xilófono",
+    name: "Xylophone",
     url: "xilofono.mp3"
   },
   {
-    name: "Batería",
+    name: "Drums",
     url: "bateria.mp3",
     duration: 4
   },
   {
-    name: "Guitarra",
+    name: "Guitar",
     url: "guitarra.mp3",
     duration: 4
   },
@@ -101,11 +101,11 @@ for (i = 0; i < inputs.length; i++) {
   })
 }
 
-document.getElementById("btn-reproducir").onclick = function() {
+document.getElementById("btn-start").onclick = function() {
 
-  var metronomo = new Audio("./sounds/metronomo.mp3");
+  var metronome = new Audio("./sounds/metronomo.mp3");
   setInterval(() => {
-    metronomo.play();
+    metronome.play();
   }, 1000);
 
   var currentBeat = 0;
@@ -137,11 +137,11 @@ document.getElementById("btn-reproducir").onclick = function() {
   }, 4000);
 }
 
-document.getElementById('btn-resetear').addEventListener('click', function() {
+document.getElementById('btn-reset').addEventListener('click', function() {
   location.reload(true);
 });
 
-document.getElementById('btn-musica').onclick = function() {
+document.getElementById('btn-sample').onclick = function() {
   var violin1 = document.getElementsByClassName('checkbox-0')[5];
   violin1.checked = true;
   var violin2 = document.getElementsByClassName('checkbox-2')[5];
@@ -168,18 +168,18 @@ document.getElementById('btn-musica').onclick = function() {
   var agogo2 = document.getElementsByClassName('checkbox-2')[9];
   agogo2.checked = true;
 
-  var xilofono1 = document.getElementsByClassName('checkbox-1')[6];
-  xilofono1.checked = true;
-  var xilofono2 = document.getElementsByClassName('checkbox-5')[6];
-  xilofono2.checked = true;
-  var xilofono3 = document.getElementsByClassName('checkbox-9')[6];
-  xilofono3.checked = true;
-  var xilofono4 = document.getElementsByClassName('checkbox-13')[6];
-  xilofono4.checked = true;
-  var xilofono5 = document.getElementsByClassName('checkbox-17')[6];
-  xilofono5.checked = true;
-  var xilofono6 = document.getElementsByClassName('checkbox-19')[6];
-  xilofono6.checked = true;
+  var xylophone1 = document.getElementsByClassName('checkbox-1')[6];
+  xylophone1.checked = true;
+  var xylophone2 = document.getElementsByClassName('checkbox-5')[6];
+  xylophone2.checked = true;
+  var xylophone3 = document.getElementsByClassName('checkbox-9')[6];
+  xylophone3.checked = true;
+  var xylophone4 = document.getElementsByClassName('checkbox-13')[6];
+  xylophone4.checked = true;
+  var xylophone5 = document.getElementsByClassName('checkbox-17')[6];
+  xylophone5.checked = true;
+  var xylophone6 = document.getElementsByClassName('checkbox-19')[6];
+  xylophone6.checked = true;
 
   var piano1 = document.getElementsByClassName('checkbox-3')[3];
   piano1.checked = true;
@@ -190,12 +190,12 @@ document.getElementById('btn-musica').onclick = function() {
   var piano4 = document.getElementsByClassName('checkbox-15')[3];
   piano4.checked = true;
 
-  var triangulo1 = document.getElementsByClassName('checkbox-4')[4];
-  triangulo1.checked = true;
-  var triangulo2 = document.getElementsByClassName('checkbox-9')[4];
-  triangulo2.checked = true;
-  var triangulo3 = document.getElementsByClassName('checkbox-13')[4];
-  triangulo3.checked = true;
-  var triangulo4 = document.getElementsByClassName('checkbox-17')[4];
-  triangulo4.checked = true;
+  var triangle1 = document.getElementsByClassName('checkbox-4')[4];
+  triangle1.checked = true;
+  var triangle2 = document.getElementsByClassName('checkbox-9')[4];
+  triangle2.checked = true;
+  var triangle3 = document.getElementsByClassName('checkbox-13')[4];
+  triangle3.checked = true;
+  var triangle4 = document.getElementsByClassName('checkbox-17')[4];
+  triangle4.checked = true;
 }
