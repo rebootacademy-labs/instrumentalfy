@@ -82,7 +82,6 @@ function createHtmlInstrument(instrument, idx) {
       input.setAttribute('class', 'longTempo');
       divInst.appendChild(input);
       input.classList.add(`checkbox-${j}`);
-      //if(j>0) {input.classList.add('gap')}
       document.getElementById('soundBox').appendChild(divInst);
     }
   }
