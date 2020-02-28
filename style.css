@@ -37,7 +37,7 @@ h1 {
 }
 
 #soundBox {
-  margin: 30px auto;
+  margin: 20px auto;
   width: 900px;
   background-color: rgba(3, 3, 3, 0.5);
   padding: 20px;
@@ -47,12 +47,12 @@ h1 {
   height: 50px;
 }
 
-.instrument > div,
-.instrument > input {
+.instrument>div,
+.instrument>input {
   vertical-align: middle;
 }
 
-.instrument > div {
+.instrument>div {
   width: 150px;
   display: inline-block;
   text-align: center;
@@ -68,13 +68,12 @@ input {
   height: 2rem;
 }
 
-
 .longTempo {
-  transform:scale(3.5, 1);
+  transform: scale(3.5, 1);
   margin-left: 73.5px;
   margin-right: 10px;
 }
 
 #btn-reproducir {
-  margin-left: 33%;
+  margin-left: 40%;
 }

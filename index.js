@@ -1,23 +1,55 @@
 const TEMPO = 20;
 
-const SOUNDS = [
-  { name: "Saxo", url: "saxo.mp3" },
-  { name: "Clarinete", url: "clarinete.mp3" },
-  { name: "Trompeta", url: "trompeta.mp3" },
-  { name: "Piano", url: "piano.mp3" },
-  { name: "Triangulo", url: "triangulo.mp3" },
-  { name: "Violin", url: "violin.mp3" },
-  { name: "Xilofono", url: "xilofono.mp3" },
-  { name: "Bateria", url: "bateria.mp3", duration: 4},
-  { name: "Guitarra", url: "guitarra.mp3", duration: 4},
-  { name: "Agogo", url: "agogo.mp3", duration: 4}
+const SOUNDS = [{
+    name: "Saxofón",
+    url: "saxo.mp3"
+  },
+  {
+    name: "Clarinete",
+    url: "clarinete.mp3"
+  },
+  {
+    name: "Trompeta",
+    url: "trompeta.mp3"
+  },
+  {
+    name: "Piano",
+    url: "piano.mp3"
+  },
+  {
+    name: "Triángulo",
+    url: "triangulo.mp3"
+  },
+  {
+    name: "Violín",
+    url: "violin.mp3"
+  },
+  {
+    name: "Xilófono",
+    url: "xilofono.mp3"
+  },
+  {
+    name: "Batería",
+    url: "bateria.mp3",
+    duration: 4
+  },
+  {
+    name: "Guitarra",
+    url: "guitarra.mp3",
+    duration: 4
+  },
+  {
+    name: "Agogo",
+    url: "agogo.mp3",
+    duration: 4
+  }
 ];
 
 function Instrument(name, url) {
   this.name = name;
   this.url = url;
   this.audio = new Audio(`./sounds/${url}`);
-  this.play = function () {
+  this.play = function() {
     this.audio.play();
   }
 }
@@ -32,7 +64,7 @@ function createHtmlInstrument(instrument, idx) {
   var divName = document.createElement('div');
   divName.innerText = instrument.name;
   divInst.appendChild(divName);
-  
+
   if (!instrument.duration) {
     for (let i = 0; i < TEMPO; i++) {
       var input = document.createElement('input');
@@ -61,7 +93,7 @@ SOUNDS.forEach((sound, idx) => {
 
 var inputs = document.querySelectorAll('input');
 for (i = 0; i < inputs.length; i++) {
-  inputs[i].addEventListener('click', function (e) {
+  inputs[i].addEventListener('click', function(e) {
     var id = this.parentElement.id.split('-')[1];
     if (this.checked) {
       instruments[id].play();
@@ -69,25 +101,24 @@ for (i = 0; i < inputs.length; i++) {
   })
 }
 
+document.getElementById("btn-reproducir").onclick = function() {
 
-document.getElementById("btn-reproducir").onclick = function () {
-
-  var metronomo = new Audio ("./sounds/metronomo.mp3");
-    setInterval(() => {
-      metronomo.play();
-    }, 1000);
+  var metronomo = new Audio("./sounds/metronomo.mp3");
+  setInterval(() => {
+    metronomo.play();
+  }, 1000);
 
   var currentBeat = 0;
   setInterval(() => {
     var shortBeats = document.querySelectorAll(`.checkbox-${currentBeat++}.shortTempo:checked`);
 
-    shortBeats.forEach(function(shortBeat){
-       var id = shortBeat.parentElement.id.split('-')[1];
-       instruments[id].play();
+    shortBeats.forEach(function(shortBeat) {
+      var id = shortBeat.parentElement.id.split('-')[1];
+      instruments[id].play();
     })
 
     if (currentBeat == 19) {
-      currentBeat = 0
+      currentBeat = 0;
     }
   }, 1000);
 
@@ -95,20 +126,20 @@ document.getElementById("btn-reproducir").onclick = function () {
   setInterval(() => {
     var longBeats = document.querySelectorAll(`.checkbox-${currentBar++}.longTempo:checked`);
 
-    longBeats.forEach(function (longBeat) {
+    longBeats.forEach(function(longBeat) {
       var id = longBeat.parentElement.id.split('-')[1];
       instruments[id].play();
     })
 
     if (currentBar == 4) {
-      currentBar = 0
+      currentBar = 0;
     }
   }, 4000);
 }
 
 document.getElementById('btn-resetear').addEventListener('click', function() {
   location.reload(true);
-})
+});
 
 document.getElementById('btn-musica').onclick = function() {
   var violin1 = document.getElementsByClassName('checkbox-0')[5];
@@ -168,16 +199,3 @@ document.getElementById('btn-musica').onclick = function() {
   var triangulo4 = document.getElementsByClassName('checkbox-17')[4];
   triangulo4.checked = true;
 }
-
-
-/*var btnAcelerar = document.getElementById("btn-agilizar");
-btnAcelerar.addEventListener("click", function() { 
-  //("./sounds/saxo.mp3").playbackRate = 4;
-});
-
-var btnRalentizar = document.getElementById("btn-ralentizar");
-
-function ralentizar(u){
-  resObject.playbackRate = 0.5;
-}
-btnRalentizar.onclick = ralentizar;*/
